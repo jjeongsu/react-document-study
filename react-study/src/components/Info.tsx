@@ -1,16 +1,13 @@
 import { useReducer, useState } from "react";
+import useInputs from "../Hooks/useInputs";
 
-const reducer = (state: any, action: any) => {
-  return {
-    ...state, 
-    [action.name]: action.value,
-  }
-}
 
 const Info  = () => {
-  const [state, dispatch] = useReducer(reducer, {name:"", nickname:''});
+  const [state, onChange] = useInputs({
+    name: '',
+    nickname: '',
+  })
   const {name, nickname} = state;
-  const onChange = (e:any) => {dispatch(e.target)}
   console.log('info 컴포넌트 랜더링');
   return (
     <div>
