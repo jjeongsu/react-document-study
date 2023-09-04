@@ -1,3 +1,4 @@
+import Average from "./components/Average";
 import { Child } from "./components/Child"
 import Counter from "./components/Counter";
 import Info from "./components/Info";
@@ -10,6 +11,7 @@ function App() {
     <Wrapper>
       <Counter />
       <Info />
+      <Average />
     </Wrapper>
   )
 }
