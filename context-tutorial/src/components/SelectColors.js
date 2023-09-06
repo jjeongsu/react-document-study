@@ -1,7 +1,7 @@
 //Context의 Actions에 넣어 준 함수를 호출하는 컴포넌트
 //마우스 왼쪽버튼 => 큰 정사각형 색상 변경,
 
-import { ColorConsumer } from "../color";
+import { ColorConsumer } from "../store/color";
 
 //마우스 오른쪽버튼 => 작은 정사각형 색상 변경
 const colors = ['red', 'orange','yellow','green','blue', 'indigo', 'violet'];
