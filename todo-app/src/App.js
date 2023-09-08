@@ -2,6 +2,7 @@ import './App.css';
 import TodoTemplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
+import Speech from './components/Speech';
 import { useCallback, useState, useRef } from 'react';
 function App() {
   const nextId = useRef(4);
@@ -35,10 +36,12 @@ function App() {
     [todos]
   );
   return (
-    <TodoTemplate>
-      <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} />
-    </TodoTemplate>
+    <>
+      <TodoTemplate>
+        <TodoInsert onInsert={onInsert} />
+        <TodoList todos={todos} />
+      </TodoTemplate>
+    </>
   );
 }
 

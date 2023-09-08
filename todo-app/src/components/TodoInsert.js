@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import * as S from '../styles/TodoInsert.style';
+import Speech from './Speech';
 const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState('');
   const onChange = useCallback((e) => setValue(e.target.value), []);
@@ -19,6 +20,7 @@ const TodoInsert = ({ onInsert }) => {
         onChange={onChange}
       />
       <S.TodoInsertButton type="submit">+</S.TodoInsertButton>
+      <Speech />
     </S.TodoInsert>
   );
 };
