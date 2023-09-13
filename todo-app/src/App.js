@@ -3,6 +3,7 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import Speech from './components/Speech';
+import LoginTest from './components/LoginTest';
 import { useCallback, useState, useRef } from 'react';
 function App() {
   const nextId = useRef(4);
@@ -33,14 +34,15 @@ function App() {
       setTodos(todos.concat(todo));
       nextId.current += 1;
     },
-    [todos]
+    [todos],
   );
   return (
     <>
-      <TodoTemplate>
+      {/* <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
         <TodoList todos={todos} />
-      </TodoTemplate>
+      </TodoTemplate> */}
+      <LoginTest />
     </>
   );
 }
