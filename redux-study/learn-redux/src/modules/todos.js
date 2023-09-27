@@ -1,6 +1,8 @@
 //액션 타입을 선언한다
 const ADD_TODO = 'todos/ADD_TODO'
-const TOGGLE_TODO = 'todos/TOGGLE_TODO'
+const TOGGLE_TODO = 'todos/TOGGLE_TODO' //투두 <-> done 상태 바꿈
+const DELETE_TODO = 'todos/DELETE_TODO'
+const UPDATE_TODO = 'todos/UPDATE_TODO' //수정하기
 
 //액션 생성함수 선언
 let nextId = 1
@@ -13,6 +15,17 @@ export const addTodo = text => ({
 })
 export const toggleTodo = id => ({
   type: TOGGLE_TODO,
+  id,
+})
+
+export const deleteTodo = id => ({
+  type: DELETE_TODO,
+  id,
+})
+
+export const updateTodo = (id, text) => ({
+  type: UPDATE_TODO,
+  text,
   id,
 })
 
@@ -37,6 +50,13 @@ export default function todos(state = initialState, action) {
     case TOGGLE_TODO:
       return state.map(todo =>
         todo.id === action.id ? { ...todo, done: !todo.done } : todo
+      )
+    case DELETE_TODO:
+      const targetIndex = state.findIndex(todo => todo.id === action.id)
+      return [...state.slice(0, targetIndex), ...state.slice(targetIndex + 1)]
+    case UPDATE_TODO:
+      return state.map(todo =>
+        todo.id === action.id ? { ...todo, text: action.text } : todo
       )
     default:
       return state
